@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AV Hackathon</title>
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="animated-bg text-white">
+
+  <!-- Floating particles -->
+  <div class="particle" style="width: 3px; height: 3px; top: 20%; left: 10%; animation-delay: 0s;"></div>
+  <div class="particle" style="width: 4px; height: 4px; top: 40%; left: 80%; animation-delay: 2s;"></div>
+  <div class="particle" style="width: 2px; height: 2px; top: 60%; left: 30%; animation-delay: 4s;"></div>
+  <div class="particle" style="width: 5px; height: 5px; top: 80%; left: 70%; animation-delay: 1s;"></div>
+  <div class="particle" style="width: 3px; height: 3px; top: 30%; left: 50%; animation-delay: 3s;"></div>
+
+  <!-- HERO -->
+  <section class="hero min-h-screen flex flex-col justify-center items-center text-center px-6">
+    <h1 class="hero-title text-5xl md:text-7xl font-extrabold tracking-tight">
+      AV Hackathon
+    </h1>
+    <p class="hero-sub mt-6 text-lg md:text-xl text-slate-300 max-w-xl">
+      A 24-hour offline innovation sprint for builders, thinkers, and problem solvers.
+    </p>
+
+    <!-- Countdown -->
+    <div id="countdown" class="countdown mt-12">
+      <div class="countdown-item">
+        <span id="days" class="countdown-number">00</span>
+        <label class="countdown-label">Days</label>
+      </div>
+      <div class="countdown-item">
+        <span id="hours" class="countdown-number">00</span>
+        <label class="countdown-label">Hours</label>
+      </div>
+      <div class="countdown-item">
+        <span id="minutes" class="countdown-number">00</span>
+        <label class="countdown-label">Minutes</label>
+      </div>
+      <div class="countdown-item">
+        <span id="seconds" class="countdown-number">00</span>
+        <label class="countdown-label">Seconds</label>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <section class="stats grid grid-cols-1 md:grid-cols-3 gap-8 px-6 py-24 max-w-6xl mx-auto">
+    <div class="stat-card reveal">
+      <div class="stat-icon">👥</div>
+      <h3>100 Teams</h3>
+      <p class="mt-2 text-slate-300">Max participation</p>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-icon">⏱️</div>
+      <h3>24 Hours</h3>
+      <p class="mt-2 text-slate-300">Non-stop hacking</p>
+    </div>
+    <div class="stat-card reveal">
+      <div class="stat-icon">📍</div>
+      <h3>Offline</h3>
+      <p class="mt-2 text-slate-300">On-campus event</p>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="section reveal">
+    <h2 class="section-title">Schedule</h2>
+    <div class="glass-card">
+      <ul>
+        <li>09:00 AM — Inauguration</li>
+        <li>10:00 AM — Hacking Begins</li>
+        <li>10:00 PM — Mid Review</li>
+        <li>10:00 AM — Submissions Close</li>
+        <li>12:00 PM — Final Presentations</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROBLEM STATEMENTS -->
+  <section class="section bg-slate-800/30 reveal">
+    <h2 class="section-title">Problem Statements</h2>
+    <div class="grid md:grid-cols-3 gap-6">
+      <div class="problem-card">AI for Social Good</div>
+      <div class="problem-card">Smart Campus Solutions</div>
+      <div class="problem-card">Cybersecurity & Privacy</div>
+    </div>
+  </section>
+
+  <!-- RULES -->
+  <section class="section reveal">
+    <h2 class="section-title">Rules</h2>
+    <div class="glass-card">
+      <ul>
+        <li>Team size: 2—4 members</li>
+        <li>Original work only</li>
+        <li>Internet usage allowed</li>
+        <li>Judges' decision is final</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EDGE CASES / CLARIFICATIONS -->
+  <section class="section bg-slate-800/30 reveal">
+    <h2 class="section-title">Edge Cases & Clarifications</h2>
+    <div class="glass-card">
+      <ul>
+        <li>⚠️ Power or internet issues will not extend deadlines unless officially announced.</li>
+        <li>⚠️ Last-minute team changes are not allowed.</li>
+        <li>⚠️ Plagiarism leads to immediate disqualification.</li>
+        <li>⚠️ Clarifications posted here override earlier instructions.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ANNOUNCEMENTS -->
+  <section class="section reveal">
+    <h2 class="section-title">Live Announcements</h2>
+
+    <div class="announcement">
+      <span>⏰ 2:15 PM</span>
+      <p style="display: inline;">Submission deadline extended by 30 minutes.</p>
+    </div>
+
+    <div class="announcement">
+      <span>📢 6:00 PM</span>
+      <p style="display: inline;">Mentor session starting in Hall B.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 text-center text-slate-400 text-sm">
+    © AV Hackathon • Organized by the Tech Team
+  </footer>
+
+  <!-- GSAP -->
+  <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+  <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+  <script src="scripts.js"></script>
+</body>
+</html>

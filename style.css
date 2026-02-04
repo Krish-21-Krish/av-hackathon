@@ -1,0 +1,160 @@
+/* =====================================================
+   CORE & ANIMATED BACKGROUND
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+.animated-bg {
+  background: linear-gradient(-45deg, #0f172a, #1e293b, #1e3a5f, #0f172a);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =====================================================
+   HERO & COUNTDOWN (FIXED VISIBILITY)
+===================================================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  z-index: 5;
+}
+
+.hero-title {
+  background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 50%, #ec4899 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 30px rgba(96, 165, 250, 0.3));
+}
+
+/* FORCE COUNTDOWN VISIBILITY */
+#countdown {
+  display: flex !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 3rem;
+  position: relative;
+  z-index: 20;
+}
+
+.countdown-item {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 1rem;
+  text-align: center;
+  min-width: 120px;
+  /* Override any external reveal classes */
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: none !important; 
+}
+
+.countdown span {
+  font-size: 3rem;
+  font-weight: 800;
+  display: block;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.countdown label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #cbd5e1;
+  letter-spacing: 2px;
+}
+
+/* =====================================================
+   CARDS & SECTIONS
+===================================================== */
+.glass-card, .stat-card, .problem-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.stat-card {
+  padding: 2.5rem;
+  text-align: center;
+}
+
+.stat-card h3 {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #60a5fa, #a78bfa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section {
+  padding: 6rem 1.5rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 4rem;
+  color: white;
+}
+
+/* =====================================================
+   REVEAL SYSTEM (FOR SCROLLING ONLY)
+===================================================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================================================
+   DECORATION
+===================================================== */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(147, 197, 253, 0.3);
+  pointer-events: none;
+  z-index: 1;
+  animation: float 20s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); opacity: 0; }
+  50% { transform: translateY(-100vh); opacity: 0.3; }
+}
+
+@media (max-width: 768px) {
+  .hero-title { font-size: 3rem !important; }
+  .countdown-number { font-size: 2rem; }
+}
