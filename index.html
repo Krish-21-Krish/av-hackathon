@@ -5,144 +5,183 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AV Hackathon</title>
 
-  <!-- Tailwind -->
-  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
+<body>
 
-<body class="animated-bg text-white">
+  <!-- BACKGROUND -->
+  <canvas id="webgl"></canvas>
 
-  <!-- Floating particles -->
-  <div class="particle" style="width: 3px; height: 3px; top: 20%; left: 10%; animation-delay: 0s;"></div>
-  <div class="particle" style="width: 4px; height: 4px; top: 40%; left: 80%; animation-delay: 2s;"></div>
-  <div class="particle" style="width: 2px; height: 2px; top: 60%; left: 30%; animation-delay: 4s;"></div>
-  <div class="particle" style="width: 5px; height: 5px; top: 80%; left: 70%; animation-delay: 1s;"></div>
-  <div class="particle" style="width: 3px; height: 3px; top: 30%; left: 50%; animation-delay: 3s;"></div>
-
-  <!-- HERO -->
-  <section class="hero min-h-screen flex flex-col justify-center items-center text-center px-6">
-    <h1 class="hero-title text-5xl md:text-7xl font-extrabold tracking-tight">
-      AV Hackathon
-    </h1>
-    <p class="hero-sub mt-6 text-lg md:text-xl text-slate-300 max-w-xl">
+  <!-- HERO (UNCHANGED) -->
+  <section class="hero">
+    <h1>Analytics Vidhya<br>Hackathon</h1>
+    <p class="hero-sub">
       A 24-hour offline innovation sprint for builders, thinkers, and problem solvers.
     </p>
 
-    <!-- Countdown -->
-    <div id="countdown" class="countdown mt-12">
-      <div class="countdown-item">
-        <span id="days" class="countdown-number">00</span>
-        <label class="countdown-label">Days</label>
+    <div class="countdown">
+      <div><span id="days">00</span><small>DAYS</small></div>
+      <div><span id="hours">00</span><small>HOURS</small></div>
+      <div><span id="minutes">00</span><small>MIN</small></div>
+      <div><span id="seconds">00</span><small>SEC</small></div>
+    </div>
+  </section>
+
+  <main>
+
+    <!-- STATS -->
+    <section class="section stats reveal">
+      <div class="card">
+        <h3>100+</h3>
+        <p>Teams Participating</p>
       </div>
-      <div class="countdown-item">
-        <span id="hours" class="countdown-number">00</span>
-        <label class="countdown-label">Hours</label>
+      <div class="card">
+        <h3>24</h3>
+        <p>Hours of Hacking</p>
       </div>
-      <div class="countdown-item">
-        <span id="minutes" class="countdown-number">00</span>
-        <label class="countdown-label">Minutes</label>
+      <div class="card">
+        <h3>Offline</h3>
+        <p>On-campus Event</p>
       </div>
-      <div class="countdown-item">
-        <span id="seconds" class="countdown-number">00</span>
-        <label class="countdown-label">Seconds</label>
+    </section>
+
+    <!-- SCHEDULE -->
+    <section class="section schedule-section reveal">
+      <h2>Schedule</h2>
+
+      <div class="schedule-grid">
+        <div class="schedule-card">09:00 AM<br><span>Inauguration</span></div>
+        <div class="schedule-card">10:00 AM<br><span>Hacking Begins</span></div>
+        <div class="schedule-card">10:00 PM<br><span>Mid Review</span></div>
+        <div class="schedule-card">10:00 AM<br><span>Submissions Close</span></div>
+        <div class="schedule-card">12:00 PM<br><span>Final Presentations</span></div>
+      </div>
+    </section>
+
+    <!-- PROBLEMS -->
+    <section class="section reveal">
+      <h2>Problem Statements</h2>
+      <div class="card-row">
+        <div class="card">AI for Social Good</div>
+        <div class="card">Smart Campus Solutions</div>
+        <div class="card">Cybersecurity & Privacy</div>
+      </div>
+    </section>
+
+    <!-- RULES -->
+    <section class="section reveal">
+      <h2>Rules</h2>
+      <div class="card-column">
+        <div class="card">2–4 members per team</div>
+        <div class="card">Original work only</div>
+        <div class="card">Internet usage allowed</div>
+        <div class="card">Judges’ decision is final</div>
+      </div>
+    </section>
+
+    <!-- LIVE UPDATES -->
+    <section class="section reveal">
+      <h2>Live Updates</h2>
+      <div class="card-column">
+        <div class="card"><small>2:15 PM</small><br>Submission deadline extended by 30 minutes</div>
+        <div class="card"><small>6:00 PM</small><br>Mentor session starting in Hall B</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer reveal">
+
+  <section class="footer-top">
+    <h2 class="footer-title">For Queries</h2>
+  </section>
+
+  <section class="footer-contacts">
+
+    <!-- ORGANIZING COMMITTEE -->
+    <div class="footer-block">
+      <h3 class="footer-heading">
+        <span class="icon">📋</span> Organizing Committee
+      </h3>
+
+      <div class="contact-row">
+        <span class="name">Dr. N. Shanmuga Priya</span>
+        <span class="phone">98946 45045</span>
+      </div>
+      <div class="contact-row">
+        <span class="name">Dr. K. Sumathi</span>
+        <span class="phone">98949 38120</span>
+      </div>
+      <div class="contact-row">
+        <span class="name">Dr. M. Praveena</span>
+        <span class="phone">98655 54616</span>
       </div>
     </div>
+
+    <!-- STUDENT COORDINATORS -->
+    <div class="footer-block">
+      <h3 class="footer-heading">
+        <span class="icon">🎓</span> Student Coordinators
+      </h3>
+
+      <div class="contact-row">
+        <span class="name">Aravindhan. M</span>
+        <span class="phone">98424 73107</span>
+      </div>
+      <div class="contact-row">
+        <span class="name">Pavithra. M</span>
+        <span class="phone">88708 53806</span>
+      </div>
+    </div>
+
   </section>
 
-  <!-- STATS -->
-  <section class="stats grid grid-cols-1 md:grid-cols-3 gap-8 px-6 py-24 max-w-6xl mx-auto">
-    <div class="stat-card reveal">
-      <div class="stat-icon">👥</div>
-      <h3>100 Teams</h3>
-      <p class="mt-2 text-slate-300">Max participation</p>
-    </div>
-    <div class="stat-card reveal">
-      <div class="stat-icon">⏱️</div>
-      <h3>24 Hours</h3>
-      <p class="mt-2 text-slate-300">Non-stop hacking</p>
-    </div>
-    <div class="stat-card reveal">
-      <div class="stat-icon">📍</div>
-      <h3>Offline</h3>
-      <p class="mt-2 text-slate-300">On-campus event</p>
-    </div>
-  </section>
+  <!-- BOTTOM BAR -->
+  <section class="footer-bottom">
+    <div class="footer-brand">
+      <div class="footer-brand-header">
+  <img src="1.png" alt="SNS Institutions" class="brand-logo" />
+  <img src="SNS Logo 2.png" alt="Dr. SNS Rajalakshmi College" class="brand-logo" />
+  <h4>IDEATHON 2026</h4>
+</div>
 
-  <!-- SCHEDULE -->
-  <section class="section reveal">
-    <h2 class="section-title">Schedule</h2>
-    <div class="glass-card">
-      <ul>
-        <li>09:00 AM — Inauguration</li>
-        <li>10:00 AM — Hacking Begins</li>
-        <li>10:00 PM — Mid Review</li>
-        <li>10:00 AM — Submissions Close</li>
-        <li>12:00 PM — Final Presentations</li>
-      </ul>
+      <p>
+        An initiative by Dr. SNS Rajalakshmi College of Arts and Science to foster
+        innovation and problem-solving among students nationwide.
+      </p>
     </div>
-  </section>
 
-  <!-- PROBLEM STATEMENTS -->
-  <section class="section bg-slate-800/30 reveal">
-    <h2 class="section-title">Problem Statements</h2>
-    <div class="grid md:grid-cols-3 gap-6">
-      <div class="problem-card">AI for Social Good</div>
-      <div class="problem-card">Smart Campus Solutions</div>
-      <div class="problem-card">Cybersecurity & Privacy</div>
+    <div class="footer-links">
+      <h5>Quick Navigation</h5>
+      <a href="#">Rules & Regulations</a>
+      <a href="#">Submission Portal</a>
+      <a href="#">FAQs</a>
+      <a href="#">Contact Team</a>
     </div>
-  </section>
 
-  <!-- RULES -->
-  <section class="section reveal">
-    <h2 class="section-title">Rules</h2>
-    <div class="glass-card">
-      <ul>
-        <li>Team size: 2—4 members</li>
-        <li>Original work only</li>
-        <li>Internet usage allowed</li>
-        <li>Judges' decision is final</li>
-      </ul>
+    <div class="footer-venue">
+      <h5>Venue Details</h5>
+      <p>
+        486 Thudiyalur – Saravanampatti Road,<br>
+        Post, Chinnavedampatti,<br>
+        Coimbatore, Tamil Nadu 641049
+      </p>
     </div>
   </section>
 
-  <!-- EDGE CASES / CLARIFICATIONS -->
-  <section class="section bg-slate-800/30 reveal">
-    <h2 class="section-title">Edge Cases & Clarifications</h2>
-    <div class="glass-card">
-      <ul>
-        <li>⚠️ Power or internet issues will not extend deadlines unless officially announced.</li>
-        <li>⚠️ Last-minute team changes are not allowed.</li>
-        <li>⚠️ Plagiarism leads to immediate disqualification.</li>
-        <li>⚠️ Clarifications posted here override earlier instructions.</li>
-      </ul>
-    </div>
-  </section>
+</footer>
 
-  <!-- ANNOUNCEMENTS -->
-  <section class="section reveal">
-    <h2 class="section-title">Live Announcements</h2>
 
-    <div class="announcement">
-      <span>⏰ 2:15 PM</span>
-      <p style="display: inline;">Submission deadline extended by 30 minutes.</p>
-    </div>
-
-    <div class="announcement">
-      <span>📢 6:00 PM</span>
-      <p style="display: inline;">Mentor session starting in Hall B.</p>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="py-8 text-center text-slate-400 text-sm">
-    © AV Hackathon • Organized by the Tech Team
-  </footer>
-
-  <!-- GSAP -->
+  <!-- LIBS -->
+  <script src="https://unpkg.com/three@0.159.0/build/three.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
   <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
-  <script src="scripts.js"></script>
+
+  <script src="script.js"></script>
 </body>
 </html>
