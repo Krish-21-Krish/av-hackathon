@@ -1,7 +1,7 @@
 gsap.registerPlugin(ScrollTrigger);
 
 // COUNTDOWN
-const eventDate = new Date("2026-02-14T00:00:00+05:30").getTime();
+const eventDate = new Date("2026-02-17T08:00:00+05:30").getTime();
 
 function updateCountdown() {
   const diff = eventDate - Date.now();
@@ -124,3 +124,4 @@ gsap.from(
     }
   }
 );
+
