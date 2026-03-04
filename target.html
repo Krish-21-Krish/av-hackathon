@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groq Real-time AI Agent Hackathon | SNS DT-AI-Hack</title>
+    <meta name="description" content="Build multi-agent AI systems with Groq's lightning-fast inference. $18K+ in prizes, 6 challenge tracks, and real-world problem solving.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'sans': ['Inter', 'system-ui', 'sans-serif'],
+                        'display': ['Space Grotesk', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'groq-orange': '#DC2626',
+                        'groq-dark': '#0F0F0F',
+                        'groq-gray': '#1A1A1A',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-groq-dark text-white">
+    
+    <!-- Floating Navigation Roadmap -->
+    <div id="floatingNav" class="hidden xl:block fixed right-8 top-1/2 transform -translate-y-1/2 z-40">
+        <div class="bg-gray-800/90 backdrop-blur-sm rounded-2xl border border-gray-700 p-4 shadow-2xl">
+            <div class="space-y-3">
+                <a href="#hero" class="nav-dot-link active" data-section="hero" title="Home">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Home</span>
+                    </div>
+                </a>
+                <a href="#about-groq" class="nav-dot-link" data-section="about-groq" title="About Groq">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">About Groq</span>
+                    </div>
+                </a>
+                <a href="#overview" class="nav-dot-link" data-section="overview" title="Overview">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Overview</span>
+                    </div>
+                </a>
+                <a href="#challenge" class="nav-dot-link" data-section="challenge" title="Challenge">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Challenge</span>
+                    </div>
+                </a>
+                <a href="#resources" class="nav-dot-link" data-section="resources" title="Resources">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Resources</span>
+                    </div>
+                </a>
+                <a href="#tracks" class="nav-dot-link" data-section="tracks" title="Tracks">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Tracks</span>
+                    </div>
+                </a>
+                <a href="#timeline" class="nav-dot-link" data-section="timeline" title="Timeline">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Timeline</span>
+                    </div>
+                </a>
+                <a href="#architecture" class="nav-dot-link" data-section="architecture" title="Architecture">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Architecture</span>
+                    </div>
+                </a>
+                <a href="#judging" class="nav-dot-link" data-section="judging" title="Judging">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Judging</span>
+                    </div>
+                </a>
+                <a href="#submit" class="nav-dot-link" data-section="submit" title="Submit">
+                    <div class="flex items-center space-x-3 group">
+                        <div class="w-3 h-3 rounded-full bg-gray-600 group-hover:bg-groq-orange transition-all duration-300 nav-dot"></div>
+                        <span class="text-xs text-gray-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">Submit</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sticky Countdown & CTA -->
+    <div id="stickyCountdown" class="hidden fixed bottom-0 left-0 right-0 bg-gradient-to-r from-groq-orange to-red-700 shadow-2xl z-50 transform translate-y-full transition-transform duration-500">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4">
+                <!-- Countdown Timer -->
+                <div class="flex items-center space-x-4">
+                    <div class="hidden sm:block">
+                        <i class="fas fa-clock text-3xl text-white"></i>
+                    </div>
+                    <div>
+                        <div class="text-xs text-white/80 font-semibold uppercase tracking-wider">Submission Deadline</div>
+                        <div id="miniCountdown" class="flex items-center space-x-2 text-white font-bold">
+                            <span id="miniDays" class="text-2xl">00</span><span class="text-sm">d</span>
+                            <span class="text-xl">:</span>
+                            <span id="miniHours" class="text-2xl">00</span><span class="text-sm">h</span>
+                            <span class="text-xl">:</span>
+                            <span id="miniMinutes" class="text-2xl">00</span><span class="text-sm">m</span>
+                            <span class="text-xl">:</span>
+                            <span id="miniSeconds" class="text-2xl">00</span><span class="text-sm">s</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- CTA Buttons -->
+                <div class="flex items-center space-x-3">
+                    <a href="#submit" class="bg-white text-groq-orange hover:bg-gray-100 px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 shadow-lg">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>Submit Project</span>
+                    </a>
+                    <a href="#" class="bg-gray-900 text-white hover:bg-black px-6 py-3 rounded-lg font-bold transition-all duration-300 transform hover:scale-105 flex items-center space-x-2 border-2 border-white/30">
+                        <i class="fas fa-user-plus"></i>
+                        <span>Register Now</span>
+                    </a>
+                    <button id="closeStickyBar" class="text-white hover:text-gray-200 transition-colors ml-2" title="Close">
+                        <i class="fas fa-times text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-groq-dark/95 backdrop-blur-sm z-50 border-b border-gray-800">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center space-x-8">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-brain text-groq-orange text-2xl"></i>
+                        <span class="font-display font-bold text-xl">SNS DT-AI-Hack</span>
+                        <span class="text-xs bg-gray-800 px-2 py-1 rounded">Legacy Version</span>
+                    </div>
+                    <div class="hidden md:flex items-center space-x-2">
+                        <i class="fas fa-bolt text-groq-orange"></i>
+                        <span class="font-display font-semibold">Groq</span>
+                    </div>
+                </div>
+                <button class="bg-groq-orange hover:bg-red-700 px-6 py-2 rounded-lg font-semibold transition-all duration-300">
+                    Login
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="pt-32 pb-20 px-4 bg-gradient-to-b from-groq-dark via-groq-gray to-groq-dark relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-20 left-10 w-72 h-72 bg-groq-orange rounded-full filter blur-3xl animate-pulse"></div>
+            <div class="absolute bottom-20 right-10 w-96 h-96 bg-blue-500 rounded-full filter blur-3xl animate-pulse delay-1000"></div>
+        </div>
+        
+        <div class="container mx-auto max-w-6xl relative z-10">
+            <div class="text-center space-y-8">
+                <h1 class="font-display font-bold text-5xl md:text-7xl leading-tight">
+                    Real-world Problems Solved with<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-groq-orange to-red-400">
+                        Real-time Inference on Groq
+                    </span>
+                </h1>
+                
+                <div class="flex flex-wrap justify-center gap-8 md:gap-16 py-8">
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-groq-orange">$18K+</div>
+                        <div class="text-gray-400 mt-2">Worth Credits & Prizes</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-groq-orange">500+</div>
+                        <div class="text-gray-400 mt-2">Participants</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-4xl md:text-5xl font-bold text-groq-orange">6</div>
+                        <div class="text-gray-400 mt-2">Challenge Tracks</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center space-x-2">
+                            <i class="fas fa-bolt text-3xl text-yellow-400"></i>
+                            <div class="text-4xl md:text-5xl font-bold">Fast</div>
+                        </div>
+                        <div class="text-gray-400 mt-2">Inference Speed</div>
+                    </div>
+                </div>
+                
+                <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+                    <a href="#submit" class="bg-groq-orange hover:bg-red-700 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 transform hover:scale-105 inline-block">
+                        Start Building Now
+                    </a>
+                    <a href="#resources" class="bg-gray-800 hover:bg-gray-700 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 inline-block">
+                        View Resources
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What is Groq Section -->
+    <section id="about-groq" class="py-20 px-4 bg-groq-dark border-b border-gray-800">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-4">What is the Groq Platform?</h2>
+            </div>
+            
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 md:p-12 border border-gray-700">
+                <div class="flex flex-col md:flex-row items-center gap-8 mb-8">
+                    <div class="flex-shrink-0">
+                        <div class="w-24 h-24 bg-groq-orange/20 rounded-full flex items-center justify-center">
+                            <i class="fas fa-microchip text-5xl text-groq-orange"></i>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-xl text-gray-300 leading-relaxed">
+                            <strong class="text-white">Groq</strong> is a generative AI solutions company and creator of the <strong class="text-groq-orange">LPU™ Inference Engine</strong>, providing the speed developers need and the scalability industry requires.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="space-y-6 text-gray-300">
+                    <p class="text-lg leading-relaxed">
+                        Founded in <strong class="text-white">2016 by Jonathan Ross</strong>, inventor of the Google Tensor Processing Unit (TPU), Groq pioneered the <strong class="text-groq-orange">Language Processing Unit</strong> as the first chip purpose-built for AI inference.
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mt-8">
+                        <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <i class="fas fa-cloud text-blue-400 text-2xl"></i>
+                                <h3 class="font-bold text-xl">GroqCloud</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">Full-stack cloud platform delivering fast AI inference at scale</p>
+                        </div>
+                        
+                        <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700">
+                            <div class="flex items-center space-x-3 mb-3">
+                                <i class="fas fa-server text-green-400 text-2xl"></i>
+                                <h3 class="font-bold text-xl">GroqRack</h3>
+                            </div>
+                            <p class="text-sm text-gray-400">Compute clusters for on-premises deployments</p>
+                        </div>
+                    </div>
+                    
+                    <p class="text-lg leading-relaxed mt-6">
+                        Groq technology powers <strong class="text-groq-orange">real-time AI applications across industries</strong>, enabling developers to turn ideas into production-ready solutions at unprecedented speed.
+                    </p>
+                    
+                    <div class="mt-8 text-center">
+                        <a href="https://groq.com" target="_blank" class="inline-flex items-center space-x-2 text-groq-orange hover:text-red-400 font-semibold text-lg transition-colors">
+                            <span>Learn more at groq.com</span>
+                            <i class="fas fa-external-link-alt"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Goal Section -->
+            <div class="mt-12 bg-gradient-to-r from-groq-orange to-red-700 rounded-2xl p-8 md:p-12 text-center">
+                <h3 class="font-display font-bold text-3xl md:text-4xl mb-4 text-white">🎯 Hackathon Goal</h3>
+                <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
+                    Build real-world AI agent systems that can <strong>perceive, reason, and act</strong> powered by Groq's ultra-fast inference and optionally integrated with <strong>Model Context Protocol (MCP)</strong> for seamless tool/data connectivity.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Overview Section -->
+    <section id="overview" class="py-20 px-4 bg-groq-gray">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="font-display font-bold text-4xl md:text-5xl text-center mb-16">Overview</h2>
+            
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 md:p-12 mb-12 border border-gray-700">
+                <h3 class="font-display font-bold text-2xl mb-4 flex items-center">
+                    <i class="fas fa-bullseye text-groq-orange mr-3"></i>
+                    The Challenge
+                </h3>
+                <p class="text-xl text-gray-300 leading-relaxed mb-6">
+                    Develop multi-agent systems that <strong class="text-white">genuinely solve real problems</strong> (not just demos), showcasing:
+                </p>
+                <ul class="space-y-3 text-gray-300">
+                    <li class="flex items-start space-x-3">
+                        <i class="fas fa-check-circle text-groq-orange mt-1 flex-shrink-0"></i>
+                        <span><strong>At least 2 specialized agents</strong> working together</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fas fa-check-circle text-groq-orange mt-1 flex-shrink-0"></i>
+                        <span><strong>Real-time performance</strong> using Groq API</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fas fa-check-circle text-groq-orange mt-1 flex-shrink-0"></i>
+                        <span><strong>(Optional) MCP integration</strong> with external tools or APIs</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fas fa-check-circle text-groq-orange mt-1 flex-shrink-0"></i>
+                        <span><strong>Multi-modal intelligence</strong> – combine at least two modalities (text, voice, vision, etc.)</span>
+                    </li>
+                    <li class="flex items-start space-x-3">
+                        <i class="fas fa-check-circle text-groq-orange mt-1 flex-shrink-0"></i>
+                        <span><strong>Meaningful impact</strong> – solve a problem you care about</span>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Beyond Chatbots -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-groq-orange transition-all duration-300">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i class="fas fa-robot text-3xl text-groq-orange"></i>
+                        <h3 class="font-display font-bold text-2xl">Beyond Chatbots</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        This isn't about creating another chatbot. It's about orchestrating intelligent agent workflows that can perceive, reason, and act across multiple modalities in real-time.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Intelligent reasoning</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Multi-modal processing</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Real-time orchestration</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Real-World Impact -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700 hover:border-groq-orange transition-all duration-300">
+                    <div class="flex items-center space-x-3 mb-6">
+                        <i class="fas fa-lightbulb text-3xl text-yellow-400"></i>
+                        <h3 class="font-display font-bold text-2xl">Real-World Impact</h3>
+                    </div>
+                    <p class="text-gray-300 mb-6">
+                        Think about what you or others struggle with that could be solved with AI. Your agents will have the speed and capabilities to make it happen with Groq.
+                    </p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Business process automation</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Industry-specific solutions</span>
+                        </li>
+                        <li class="flex items-center space-x-3">
+                            <i class="fas fa-check-circle text-green-400"></i>
+                            <span>Personal productivity tools</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Section -->
+    <section id="challenge" class="py-20 px-4 bg-groq-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-4">
+                    The Challenge: Build Multi-Agent Systems<br>That Actually Work
+                </h2>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Multi-Agent Architecture -->
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 transform hover:scale-105">
+                    <div class="text-4xl mb-4">🤖</div>
+                    <h3 class="font-display font-bold text-xl mb-3">Multi-Agent Architecture</h3>
+                    <p class="text-gray-400">Deploy at least 2 specialized agents working in coordination</p>
+                </div>
+                
+                <!-- Real-Time Performance -->
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 transform hover:scale-105">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="font-display font-bold text-xl mb-3">Real-Time Performance</h3>
+                    <p class="text-gray-400">Leverage Groq's lightning-fast inference for responsive user experiences</p>
+                </div>
+                
+                <!-- MCP Integration -->
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 transform hover:scale-105">
+                    <div class="text-4xl mb-4">🔌</div>
+                    <h3 class="font-display font-bold text-xl mb-3">MCP Integration</h3>
+                    <p class="text-gray-400">Use Model Context Protocol with external tools or pre-built agents</p>
+                </div>
+                
+                <!-- Multi-Modal Intelligence -->
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 transform hover:scale-105">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="font-display font-bold text-xl mb-3">Multi-Modal Intelligence</h3>
+                    <p class="text-gray-400">Incorporate at least two modalities (text, voice, vision)</p>
+                </div>
+                
+                <!-- Genuine Use Case -->
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 transform hover:scale-105">
+                    <div class="text-4xl mb-4">💡</div>
+                    <h3 class="font-display font-bold text-xl mb-3">Genuine Use Case</h3>
+                    <p class="text-gray-400">Solve a real problem that's near to your heart - not a contrived demo</p>
+                </div>
+                
+                <!-- Placeholder for symmetry -->
+                <div class="bg-gradient-to-br from-groq-orange to-red-700 rounded-xl p-6 border border-red-500 transform hover:scale-105 transition-all duration-300 flex items-center justify-center">
+                    <div class="text-center">
+                        <div class="text-4xl mb-3">🚀</div>
+                        <h3 class="font-display font-bold text-xl">Ready to Build?</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="resources" class="py-20 px-4 bg-groq-gray">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="font-display font-bold text-4xl md:text-5xl text-center mb-4">
+                AIM × Groq Developer Resources
+            </h2>
+            <p class="text-center text-gray-400 text-xl mb-16">Everything you need to build your multi-agent system</p>
+            
+            <!-- Quick Start Guide -->
+            <div class="mb-16">
+                <h3 class="font-display font-bold text-3xl mb-8 flex items-center">
+                    <i class="fas fa-rocket text-groq-orange mr-3"></i>
+                    Quick Start Guide
+                </h3>
+                
+                <!-- Step by step guide -->
+                <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700 mb-8">
+                    <div class="space-y-6">
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-groq-orange rounded-full flex items-center justify-center font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Create Your Account</h4>
+                                <p class="text-gray-400">Visit <a href="https://console.groq.com" target="_blank" class="text-groq-orange hover:underline">console.groq.com</a> and sign up for a free account.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-groq-orange rounded-full flex items-center justify-center font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Generate Groq API Key</h4>
+                                <p class="text-gray-400">Once logged in, navigate to <strong class="text-white">API Keys</strong> in the top sidebar and create your Groq API key. You have access to <strong class="text-groq-orange">millions of free tokens</strong> on our free tier.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-groq-orange rounded-full flex items-center justify-center font-bold">3</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Choose Your Models</h4>
+                                <p class="text-gray-400">Browse available models at <a href="https://console.groq.com/docs/models" target="_blank" class="text-groq-orange hover:underline">console.groq.com/docs/models</a>. For multi-agent systems, you'll want different models for different agent roles.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-groq-orange rounded-full flex items-center justify-center font-bold">4</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Test in Playground</h4>
+                                <p class="text-gray-400">Use the playground to test prompts and understand model behavior before writing code. This helps you determine which models work best for each agent role.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="flex-shrink-0 w-10 h-10 bg-groq-orange rounded-full flex items-center justify-center font-bold">5</div>
+                            <div>
+                                <h4 class="font-bold text-lg mb-2">Make Your First API Call</h4>
+                                <p class="text-gray-400">Experience the performance of Groq for yourself and have fun building! 🚀</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Quick Links -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="https://console.groq.com" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-terminal text-2xl text-groq-orange"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Groq Console</h4>
+                        <p class="text-gray-400 text-sm">Create projects, view usage, and manage organization settings.</p>
+                    </a>
+                    
+                    <a href="https://console.groq.com/docs/models" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-brain text-2xl text-groq-orange"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Models</h4>
+                        <p class="text-gray-400 text-sm">Browse supported models, capabilities, and best-fit use cases.</p>
+                    </a>
+                    
+                    <a href="https://console.groq.com/playground" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-play-circle text-2xl text-groq-orange"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Playground</h4>
+                        <p class="text-gray-400 text-sm">Experiment with prompts and streaming responses in your browser.</p>
+                    </a>
+                    
+                    <a href="https://console.groq.com/docs/overview" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-tachometer-alt text-2xl text-groq-orange"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Rate Limits</h4>
+                        <p class="text-gray-400 text-sm">Understand concurrency, throughput, and quotas to plan reliable workloads.</p>
+                    </a>
+                    
+                    <a href="https://console.groq.com" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-key text-2xl text-groq-orange"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">API Keys</h4>
+                        <p class="text-gray-400 text-sm">Generate and rotate API credentials securely.</p>
+                    </a>
+                    
+                    <a href="#" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-trophy text-2xl text-groq-orange"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Hackathon</h4>
+                        <p class="text-gray-400 text-sm">Event details, timelines, prizes, and participation guidelines.</p>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Pricing Tiers -->
+            <div class="mb-16">
+                <h3 class="font-display font-bold text-3xl mb-8 flex items-center">
+                    <i class="fas fa-dollar-sign text-groq-orange mr-3"></i>
+                    Pricing Tiers
+                </h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 border border-gray-700">
+                        <div class="flex items-center space-x-3 mb-4">
+                            <i class="fas fa-gift text-green-400 text-3xl"></i>
+                            <h4 class="font-display font-bold text-2xl">Free Tier</h4>
+                        </div>
+                        <p class="text-gray-300 mb-4">
+                            Includes generous daily token limits designed for hackathon development. You can build and test complete multi-agent systems without any cost.
+                        </p>
+                        <ul class="space-y-2 text-gray-400">
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Millions of free tokens</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>Perfect for prototyping & testing</span>
+                            </li>
+                            <li class="flex items-center space-x-2">
+                                <i class="fas fa-check text-green-400"></i>
+                                <span>No credit card required</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gradient-to-br from-groq-orange to-red-700 rounded-2xl p-8 border border-red-500 relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-yellow-400 text-black px-4 py-1 text-sm font-bold transform rotate-12 translate-x-8 -translate-y-2">
+                            HACKATHON SPECIAL
+                        </div>
+                        <div class="flex items-center space-x-3 mb-4">
+                            <i class="fas fa-rocket text-white text-3xl"></i>
+                            <h4 class="font-display font-bold text-2xl text-white">Developer Tier</h4>
+                        </div>
+                        <p class="text-white/90 mb-4">
+                            When you're ready to scale or need higher rate limits, upgrade to our pay-as-you-go developer tier.
+                        </p>
+                        <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 mb-4">
+                            <p class="text-white font-semibold mb-2">🎁 Special Offer for Participants:</p>
+                            <p class="text-white/90 text-lg">
+                                <strong>$10 in API credits</strong> (equivalent to <strong>hundreds of millions of tokens</strong>) to get you started with production deployment.
+                            </p>
+                        </div>
+                        <div class="bg-black/30 rounded-lg p-4">
+                            <p class="text-white/90 text-sm mb-2">Use promo code:</p>
+                            <div class="flex items-center space-x-2">
+                                <code class="bg-black/50 text-groq-orange px-4 py-2 rounded font-mono font-bold text-lg flex-1">AIMGROQAUG2025</code>
+                                <button onclick="copyToClipboard('AIMGROQAUG2025')" class="bg-white/20 hover:bg-white/30 px-4 py-2 rounded transition-colors">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- How to Get More Credits -->
+                <div class="mt-8 bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                    <h4 class="font-display font-bold text-2xl mb-6 flex items-center">
+                        <i class="fas fa-coins text-yellow-400 text-2xl mr-3"></i>
+                        How to Get More Groq Credits?
+                    </h4>
+                    <ol class="space-y-4">
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-groq-orange rounded-full flex items-center justify-center text-sm font-bold">1</span>
+                            <p class="text-gray-300">Create a free account on <a href="https://console.groq.com" target="_blank" class="text-groq-orange hover:underline">Groq Console</a></p>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-groq-orange rounded-full flex items-center justify-center text-sm font-bold">2</span>
+                            <p class="text-gray-300">See our <a href="https://console.groq.com/docs/overview" target="_blank" class="text-groq-orange hover:underline">API docs</a> or copy from our <a href="https://console.groq.com/llms-full.txt" target="_blank" class="text-groq-orange hover:underline">llms-full.txt page</a> and check out our <a href="https://github.com/groq/groq-api-cookbook" target="_blank" class="text-groq-orange hover:underline">Groq API Cookbook</a> for tutorials</p>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-groq-orange rounded-full flex items-center justify-center text-sm font-bold">3</span>
+                            <p class="text-gray-300">Start building with our generous free tier</p>
+                        </li>
+                        <li class="flex items-start space-x-3">
+                            <span class="flex-shrink-0 w-6 h-6 bg-groq-orange rounded-full flex items-center justify-center text-sm font-bold">4</span>
+                            <p class="text-gray-300">Join our new developer forum on <a href="https://community.groq.com" target="_blank" class="text-groq-orange hover:underline">community.groq.com</a> for direct help from our team</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+            
+            <!-- Code Examples -->
+            <div class="mb-16">
+                <h3 class="font-display font-bold text-3xl mb-8 flex items-center">
+                    <i class="fas fa-code text-groq-orange mr-3"></i>
+                    Code Examples and Learning Resources
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <a href="https://console.groq.com/docs" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-book text-2xl text-blue-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Official Documentation</h4>
+                        <p class="text-gray-400 text-sm">Comprehensive API reference and docs at console.groq.com/docs</p>
+                    </a>
+                    
+                    <a href="https://github.com/build-with-groq" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fab fa-github text-2xl text-purple-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Build With Groq</h4>
+                        <p class="text-gray-400 text-sm">Complete application examples at github.com/build-with-groq</p>
+                    </a>
+                    
+                    <a href="https://github.com/groq/groq-api-cookbook" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-book-open text-2xl text-yellow-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Groq API Cookbook</h4>
+                        <p class="text-gray-400 text-sm">Step-by-step tutorials at github.com/groq/groq-api-cookbook</p>
+                    </a>
+                    
+                    <a href="https://github.com/groq/groq-desktop-beta" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-desktop text-2xl text-pink-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Groq Desktop Client (MCP)</h4>
+                        <p class="text-gray-400 text-sm">Explore MCP servers through our official Groq Desktop client</p>
+                    </a>
+                    
+                    <a href="https://github.com/build-with-groq/groq-code-cli" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-terminal text-2xl text-green-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Groq Code CLI</h4>
+                        <p class="text-gray-400 text-sm">Code with GPT-OSS or Kimi K2 models on Groq for fast development</p>
+                    </a>
+                    
+                    <a href="https://console.groq.com/llms-full.txt" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-file-alt text-2xl text-red-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">LLMs Full Text</h4>
+                        <p class="text-gray-400 text-sm">Complete API documentation in text format for easy copying</p>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Community and Support -->
+            <div>
+                <h3 class="font-display font-bold text-3xl mb-8 flex items-center">
+                    <i class="fas fa-users text-groq-orange mr-3"></i>
+                    Community and Support
+                </h3>
+                
+                <div class="bg-gradient-to-br from-blue-900/30 to-gray-900 rounded-2xl p-8 border border-blue-700/50 mb-8">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-headset text-3xl text-blue-400"></i>
+                        <h4 class="font-display font-bold text-2xl">Hackathon Support</h4>
+                    </div>
+                    <p class="text-gray-300 text-lg">
+                        During the event, our <strong class="text-white">Developer Relations team</strong> actively monitors community channels to provide <strong class="text-groq-orange">real-time assistance</strong> with implementation questions and technical support.
+                    </p>
+                </div>
+                
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <a href="https://community.groq.com" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fas fa-comments text-2xl text-groq-orange"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">Developer Forum</h4>
+                        <p class="text-gray-400 text-sm">Get help from the community at community.groq.com. Post technical questions, share implementations, and troubleshoot issues.</p>
+                    </a>
+                    
+                    <a href="https://x.com/groqinc" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fab fa-x-twitter text-2xl text-blue-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">X: @GroqInc</h4>
+                        <p class="text-gray-400 text-sm">Official updates and announcements</p>
+                    </a>
+                    
+                    <a href="https://x.com/ozenhati" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fab fa-x-twitter text-2xl text-blue-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">X: @ozenhati</h4>
+                        <p class="text-gray-400 text-sm">Developer insights, best practices, and product tips</p>
+                    </a>
+                    
+                    <a href="https://x.com/benankdev" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fab fa-x-twitter text-2xl text-blue-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">X: @benankdev</h4>
+                        <p class="text-gray-400 text-sm">Community examples, repos, and engineering updates</p>
+                    </a>
+                    
+                    <a href="https://x.com/yawnxyz" target="_blank" class="bg-gray-800 rounded-xl p-6 border border-gray-700 hover:border-groq-orange transition-all duration-300 block group">
+                        <div class="flex items-start justify-between mb-3">
+                            <i class="fab fa-x-twitter text-2xl text-blue-400"></i>
+                            <i class="fas fa-external-link-alt text-gray-600 group-hover:text-groq-orange transition-colors"></i>
+                        </div>
+                        <h4 class="font-bold text-lg mb-2">X: @yawnxyz</h4>
+                        <p class="text-gray-400 text-sm">Announcements, resources, and ecosystem highlights</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="py-20 px-4 bg-groq-dark">
+        <div class="container mx-auto max-w-4xl">
+            <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 md:p-12 text-center">
+                <h2 class="font-display font-bold text-3xl md:text-4xl mb-4">Join Our Community</h2>
+                <p class="text-xl text-blue-100 mb-8">
+                    Connect with fellow participants, get help, and stay updated on the latest developments
+                </p>
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6 mb-6">
+                    <h3 class="font-bold text-xl mb-3">SNS DT-AI-Hack Telegram Group</h3>
+                    <p class="text-blue-100 mb-4">
+                        Join our vibrant community of AI enthusiasts, get real-time support, share your progress, and connect with fellow participants from around the world.
+                    </p>
+                </div>
+                <a href="#" target="_blank" class="bg-white text-blue-600 hover:bg-blue-50 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 inline-flex items-center space-x-2">
+                    <i class="fab fa-telegram-plane text-2xl"></i>
+                    <span>Join Telegram Group</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why This Matters Section -->
+    <section class="py-20 px-4 bg-groq-dark border-b border-gray-800">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-12">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-8">Why This Matters</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-groq-orange to-red-700 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="font-display font-bold text-2xl mb-3 text-white">Groq = Real-time Inference</h3>
+                    <p class="text-white/90 text-lg">Milliseconds response time</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-blue-600 to-blue-800 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300">
+                    <div class="text-5xl mb-4">🔌</div>
+                    <h3 class="font-display font-bold text-2xl mb-3 text-white">MCP = Seamless Integration</h3>
+                    <p class="text-white/90 text-lg">Production-grade agents</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-600 to-purple-800 rounded-2xl p-8 text-center transform hover:scale-105 transition-all duration-300">
+                    <div class="text-5xl mb-4">🚀</div>
+                    <h3 class="font-display font-bold text-2xl mb-3 text-white">Your Opportunity</h3>
+                    <p class="text-white/90 text-lg">Build the next generation of intelligent AI systems</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Excited Section -->
+    <section class="py-20 px-4 bg-groq-gray">
+        <div class="container mx-auto max-w-6xl">
+            <h2 class="font-display font-bold text-4xl md:text-5xl text-center mb-16">
+                Why are we excited about this hackathon?
+            </h2>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
+                    <div class="text-5xl mb-4">⚡</div>
+                    <h3 class="font-display font-bold text-2xl mb-4">Lightning-Fast Agent Orchestration</h3>
+                    <p class="text-gray-300">
+                        Groq's inference speed enables true real-time multi-agent collaboration. Your agents can exchange information, coordinate actions, and respond to users in milliseconds, not minutes.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
+                    <div class="text-5xl mb-4">🔌</div>
+                    <h3 class="font-display font-bold text-2xl mb-4">MCP-Powered Tool Integration</h3>
+                    <p class="text-gray-300">
+                        Connect your agents to databases, APIs, file systems, and external services through standardized protocols. No more brittle API integrations - your agents can work with real business systems.
+                    </p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-8 border border-gray-700">
+                    <div class="text-5xl mb-4">🏗️</div>
+                    <h3 class="font-display font-bold text-2xl mb-4">Production-Ready Architecture</h3>
+                    <p class="text-gray-300">
+                        Build systems that can handle real workloads, not just proof-of-concepts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenge Tracks Section -->
+    <section id="tracks" class="py-20 px-4 bg-groq-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-4">Challenge Tracks</h2>
+                <p class="text-xl text-gray-400">Choose your focus area or create a cross-domain solution</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Healthcare -->
+                <div class="bg-gradient-to-br from-red-900/30 to-gray-900 rounded-xl p-8 border border-red-700/50 hover:border-red-500 transition-all duration-300">
+                    <div class="text-4xl mb-4">🏥</div>
+                    <h3 class="font-display font-bold text-2xl mb-3">Healthcare & Diagnostics</h3>
+                    <p class="text-gray-300 mb-4">AI agents for medical diagnosis, patient monitoring, and healthcare automation</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-red-400"></i>
+                            <span>Patient data analysis</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-red-400"></i>
+                            <span>Diagnostic assistance</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-red-400"></i>
+                            <span>Medical record processing</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Financial -->
+                <div class="bg-gradient-to-br from-green-900/30 to-gray-900 rounded-xl p-8 border border-green-700/50 hover:border-green-500 transition-all duration-300">
+                    <div class="text-4xl mb-4">💰</div>
+                    <h3 class="font-display font-bold text-2xl mb-3">Financial Analysis</h3>
+                    <p class="text-gray-300 mb-4">Real-time financial data processing, risk assessment, and trading automation</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Market analysis</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Risk assessment</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-green-400"></i>
+                            <span>Portfolio optimization</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Supply Chain -->
+                <div class="bg-gradient-to-br from-blue-900/30 to-gray-900 rounded-xl p-8 border border-blue-700/50 hover:border-blue-500 transition-all duration-300">
+                    <div class="text-4xl mb-4">📦</div>
+                    <h3 class="font-display font-bold text-2xl mb-3">Supply Chain Optimization</h3>
+                    <p class="text-gray-300 mb-4">Intelligent logistics, inventory management, and demand forecasting</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-blue-400"></i>
+                            <span>Inventory tracking</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-blue-400"></i>
+                            <span>Demand forecasting</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-blue-400"></i>
+                            <span>Route optimization</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Customer Service -->
+                <div class="bg-gradient-to-br from-purple-900/30 to-gray-900 rounded-xl p-8 border border-purple-700/50 hover:border-purple-500 transition-all duration-300">
+                    <div class="text-4xl mb-4">🎧</div>
+                    <h3 class="font-display font-bold text-2xl mb-3">Customer Service Automation</h3>
+                    <p class="text-gray-300 mb-4">Multi-modal customer support with voice, text, and visual processing</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-purple-400"></i>
+                            <span>Voice interactions</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-purple-400"></i>
+                            <span>Issue resolution</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-purple-400"></i>
+                            <span>Multi-language support</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Sustainability -->
+                <div class="bg-gradient-to-br from-teal-900/30 to-gray-900 rounded-xl p-8 border border-teal-700/50 hover:border-teal-500 transition-all duration-300">
+                    <div class="text-4xl mb-4">🌱</div>
+                    <h3 class="font-display font-bold text-2xl mb-3">Sustainability Monitoring</h3>
+                    <p class="text-gray-300 mb-4">Environmental data analysis and sustainability impact assessment</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-teal-400"></i>
+                            <span>Environmental monitoring</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-teal-400"></i>
+                            <span>Impact assessment</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-teal-400"></i>
+                            <span>Resource optimization</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Cross-Domain -->
+                <div class="bg-gradient-to-br from-red-900/30 to-gray-900 rounded-xl p-8 border border-red-700/50 hover:border-red-500 transition-all duration-300">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="font-display font-bold text-2xl mb-3">Cross-Domain Innovation</h3>
+                    <p class="text-gray-300 mb-4">Create novel solutions that span multiple domains and use cases</p>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-red-400"></i>
+                            <span>Creative combinations</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-red-400"></i>
+                            <span>Novel applications</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check text-red-400"></i>
+                            <span>Domain integration</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="py-20 px-4 bg-groq-gray">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-4">Event Timeline</h2>
+                <p class="text-xl text-gray-400">Key dates and milestones for the Groq Real-time AI Agent Hackathon</p>
+            </div>
+            
+            <div class="relative">
+                <!-- Timeline Line -->
+                <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gray-700"></div>
+                
+                <!-- Timeline Items -->
+                <div class="space-y-12">
+                    <!-- Registration Opens -->
+                    <div class="relative flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right">
+                            <div class="bg-green-600 inline-block px-3 py-1 rounded-full text-sm font-semibold mb-2">Completed</div>
+                            <h3 class="font-display font-bold text-2xl mb-2">Registration Opens</h3>
+                            <p class="text-groq-orange font-semibold mb-2">August 26, 2025 - 6:00 PM IST</p>
+                            <p class="text-gray-400">Registration begins for all participants worldwide</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-green-600 rounded-full border-4 border-groq-gray"></div>
+                        <div class="md:w-1/2"></div>
+                    </div>
+                    
+                    <!-- Hackathon Begins -->
+                    <div class="relative flex items-center">
+                        <div class="md:w-1/2"></div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-groq-orange rounded-full border-4 border-groq-gray animate-pulse"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-groq-orange inline-block px-3 py-1 rounded-full text-sm font-semibold mb-2">Active</div>
+                            <h3 class="font-display font-bold text-2xl mb-2">Hackathon Begins</h3>
+                            <p class="text-groq-orange font-semibold mb-2">September 1, 2025 - 9:00 AM IST</p>
+                            <p class="text-gray-400">Development phase starts, access to Groq API and resources</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Submission Deadline -->
+                    <div class="relative flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right">
+                            <div class="bg-gray-700 inline-block px-3 py-1 rounded-full text-sm font-semibold mb-2">Upcoming</div>
+                            <h3 class="font-display font-bold text-2xl mb-2">Submission Deadline</h3>
+                            <p class="text-groq-orange font-semibold mb-2">October 6, 2025 - 11:59 PM IST</p>
+                            <p class="text-gray-400">Final submissions must be completed by this deadline</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gray-700 rounded-full border-4 border-groq-gray"></div>
+                        <div class="md:w-1/2"></div>
+                    </div>
+                    
+                    <!-- Judging Period -->
+                    <div class="relative flex items-center">
+                        <div class="md:w-1/2"></div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-gray-700 rounded-full border-4 border-groq-gray"></div>
+                        <div class="md:w-1/2 md:pl-12">
+                            <div class="bg-gray-700 inline-block px-3 py-1 rounded-full text-sm font-semibold mb-2">Upcoming</div>
+                            <h3 class="font-display font-bold text-2xl mb-2">Judging Period</h3>
+                            <p class="text-groq-orange font-semibold mb-2">September 1 - October 6, 2025</p>
+                            <p class="text-gray-400">Expert panel reviews and evaluates all submissions</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Results Announced -->
+                    <div class="relative flex items-center">
+                        <div class="md:w-1/2 md:pr-12 md:text-right">
+                            <div class="bg-gray-700 inline-block px-3 py-1 rounded-full text-sm font-semibold mb-2">Upcoming</div>
+                            <h3 class="font-display font-bold text-2xl mb-2">Results Announced</h3>
+                            <p class="text-groq-orange font-semibold mb-2">October 6, 2025 - 12:00 PM IST</p>
+                            <p class="text-gray-400">Winners announced and prizes distributed</p>
+                        </div>
+                        <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-yellow-500 rounded-full border-4 border-groq-gray"></div>
+                        <div class="md:w-1/2"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Timeline Stats -->
+            <div class="grid grid-cols-3 gap-4 mt-16">
+                <div class="bg-gray-800 rounded-xl p-6 text-center border border-gray-700">
+                    <div class="text-3xl font-bold text-groq-orange mb-2">45 Days</div>
+                    <div class="text-gray-400">Development Time</div>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 text-center border border-gray-700">
+                    <div class="text-3xl font-bold text-groq-orange mb-2">45 Days</div>
+                    <div class="text-gray-400">Judging Period</div>
+                </div>
+                <div class="bg-gray-800 rounded-xl p-6 text-center border border-gray-700">
+                    <div class="text-3xl font-bold text-groq-orange mb-2">Oct 6</div>
+                    <div class="text-gray-400">Results Day</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sample Architecture Section -->
+    <section id="architecture" class="py-20 px-4 bg-groq-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-4">Sample Architecture</h2>
+                <p class="text-xl text-gray-400">Sample Architecture: Intelligent Document Processing</p>
+                <p class="text-gray-500 mt-2">See how multiple agents work together to process documents with real-time performance</p>
+            </div>
+            
+            <div class="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 md:p-12 border border-gray-700">
+                <!-- Agent Ensemble -->
+                <div class="mb-12">
+                    <h3 class="font-display font-bold text-2xl mb-6 flex items-center">
+                        <i class="fas fa-sitemap text-groq-orange mr-3"></i>
+                        Agent Ensemble
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <div class="bg-gray-900 rounded-lg p-4 border border-blue-500/30">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <i class="fas fa-microphone text-blue-400"></i>
+                                <h4 class="font-bold">Intake Agent</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">Whisper</p>
+                            <p class="text-xs text-gray-500 mt-2">Handles voice and document uploads</p>
+                        </div>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 border border-purple-500/30">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <i class="fas fa-eye text-purple-400"></i>
+                                <h4 class="font-bold">Vision Agent</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">Llama-4-Scout</p>
+                            <p class="text-xs text-gray-500 mt-2">Extracts text/tables from documents</p>
+                        </div>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 border border-green-500/30">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <i class="fas fa-tags text-green-400"></i>
+                                <h4 class="font-bold">Classification Agent</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">Gemma2</p>
+                            <p class="text-xs text-gray-500 mt-2">Categorizes documents</p>
+                        </div>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 border border-yellow-500/30">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <i class="fas fa-plug text-yellow-400"></i>
+                                <h4 class="font-bold">Integration Agent</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">MCP</p>
+                            <p class="text-xs text-gray-500 mt-2">Connects to APIs/databases</p>
+                        </div>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 border border-groq-orange/30 md:col-span-2 lg:col-span-1">
+                            <div class="flex items-center space-x-2 mb-2">
+                                <i class="fas fa-crown text-groq-orange"></i>
+                                <h4 class="font-bold">Orchestrator Agent</h4>
+                            </div>
+                            <p class="text-sm text-gray-400">Llama 3.3 70B</p>
+                            <p class="text-xs text-gray-500 mt-2">Coordinates workflow</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- MCP Integration Points -->
+                <div class="mb-12">
+                    <h3 class="font-display font-bold text-2xl mb-6 flex items-center">
+                        <i class="fas fa-network-wired text-groq-orange mr-3"></i>
+                        MCP Integration Points
+                    </h3>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <div class="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                            <i class="fas fa-database text-green-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold mb-1">Database Connector</h4>
+                            <p class="text-xs text-gray-500">Store processed documents and metadata</p>
+                        </div>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                            <i class="fas fa-server text-blue-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold mb-1">API Gateway</h4>
+                            <p class="text-xs text-gray-500">Push data to downstream systems</p>
+                        </div>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                            <i class="fas fa-folder text-yellow-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold mb-1">File System</h4>
+                            <p class="text-xs text-gray-500">Access shared document repositories</p>
+                        </div>
+                        
+                        <div class="bg-gray-900 rounded-lg p-4 border border-gray-700">
+                            <i class="fas fa-bell text-purple-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold mb-1">Notification Service</h4>
+                            <p class="text-xs text-gray-500">Alert users of processing status</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Flow Example -->
+                <div class="mb-8">
+                    <h3 class="font-display font-bold text-2xl mb-6 flex items-center">
+                        <i class="fas fa-project-diagram text-groq-orange mr-3"></i>
+                        Flow Example
+                    </h3>
+                    <div class="bg-gray-900/50 rounded-xl p-6 border border-gray-700">
+                        <ol class="space-y-4">
+                            <li class="flex items-start space-x-3">
+                                <div class="flex-shrink-0 w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center font-bold text-sm">1</div>
+                                <div>
+                                    <p class="text-gray-300"><strong class="text-white">Voice input:</strong> "Process these invoices and update accounting"</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <div class="flex-shrink-0 w-8 h-8 bg-purple-600 rounded-full flex items-center justify-center font-bold text-sm">2</div>
+                                <div>
+                                    <p class="text-gray-300"><strong class="text-white">Vision agent</strong> extracts key data</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <div class="flex-shrink-0 w-8 h-8 bg-green-600 rounded-full flex items-center justify-center font-bold text-sm">3</div>
+                                <div>
+                                    <p class="text-gray-300"><strong class="text-white">Validation</strong> via MCP-connected vendor DB</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <div class="flex-shrink-0 w-8 h-8 bg-yellow-600 rounded-full flex items-center justify-center font-bold text-sm">4</div>
+                                <div>
+                                    <p class="text-gray-300"><strong class="text-white">MCP updates</strong> accounting system</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start space-x-3">
+                                <div class="flex-shrink-0 w-8 h-8 bg-groq-orange rounded-full flex items-center justify-center font-bold text-sm">5</div>
+                                <div>
+                                    <p class="text-gray-300"><strong class="text-white">Voice feedback</strong> confirms success</p>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+                
+                <!-- Real-Time Performance -->
+                <div>
+                    <h3 class="font-display font-bold text-2xl mb-6 flex items-center">
+                        <i class="fas fa-bolt text-groq-orange mr-3"></i>
+                        Real-Time Performance
+                    </h3>
+                    <div class="text-center">
+                        <div class="inline-block bg-gradient-to-r from-groq-orange to-red-500 text-white font-bold px-8 py-3 rounded-full text-xl">
+                            Sub-500ms Response Time
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Judging Criteria Section -->
+    <section id="judging" class="py-20 px-4 bg-groq-gray">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-4">Judging Criteria</h2>
+                <p class="text-xl text-gray-400">How your multi-agent AI system will be evaluated across technical excellence, real-world impact, and innovation</p>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-gradient-to-br from-blue-900/30 to-gray-900 rounded-xl p-8 border border-blue-700/50 text-center">
+                    <div class="text-5xl font-bold text-blue-400 mb-4">35%</div>
+                    <h3 class="font-display font-bold text-2xl mb-2">Technical Excellence</h3>
+                    <p class="text-gray-400">Code quality, architecture, and implementation</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-green-900/30 to-gray-900 rounded-xl p-8 border border-green-700/50 text-center">
+                    <div class="text-5xl font-bold text-green-400 mb-4">35%</div>
+                    <h3 class="font-display font-bold text-2xl mb-2">Real-World Impact</h3>
+                    <p class="text-gray-400">Practical value and problem-solving effectiveness</p>
+                </div>
+                
+                <div class="bg-gradient-to-br from-purple-900/30 to-gray-900 rounded-xl p-8 border border-purple-700/50 text-center">
+                    <div class="text-5xl font-bold text-purple-400 mb-4">30%</div>
+                    <h3 class="font-display font-bold text-2xl mb-2">Innovation</h3>
+                    <p class="text-gray-400">Creativity and novel approaches</p>
+                </div>
+            </div>
+            
+            <div class="bg-gray-800 rounded-2xl p-8 border border-gray-700">
+                <h3 class="font-display font-bold text-2xl mb-6 flex items-center">
+                    <i class="fas fa-star text-yellow-400 mr-3"></i>
+                    Technical Excellence Components
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold mb-1">Agent Architecture</h4>
+                            <p class="text-sm text-gray-400">How well do your agents collaborate and specialize?</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold mb-1">MCP Implementation</h4>
+                            <p class="text-sm text-gray-400">Effective use of Model Context Protocol for tool integration</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold mb-1">Performance</h4>
+                            <p class="text-sm text-gray-400">Leveraging Groq's speed for responsive user experiences</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-3">
+                        <i class="fas fa-check-circle text-green-400 mt-1"></i>
+                        <div>
+                            <h4 class="font-bold mb-1">Code Quality</h4>
+                            <p class="text-sm text-gray-400">Clean, maintainable, and well-documented implementation</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Submission Guidelines Section -->
+    <section id="submit" class="py-20 px-4 bg-groq-dark">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-16">
+                <h2 class="font-display font-bold text-4xl md:text-5xl mb-4">Submission Guidelines</h2>
+                <div class="inline-block bg-groq-orange/20 border border-groq-orange rounded-lg px-6 py-3 mt-4">
+                    <p class="text-xl">
+                        <i class="fas fa-clipboard-list mr-2"></i>
+                        <strong>Submission Requirements:</strong> GitHub Repository + Max. 3 Minute Video + Live Deployment Link (or comprehensive README for running locally)
+                    </p>
+                </div>
+            </div>
+            
+            <div class="space-y-8">
+                <!-- Executive Summary -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h3 class="font-display font-bold text-2xl mb-4 flex items-center">
+                        <span class="bg-groq-orange w-8 h-8 rounded-full flex items-center justify-center mr-3">1</span>
+                        Executive Summary
+                    </h3>
+                    <ul class="space-y-2 text-gray-300 ml-11">
+                        <li><strong>Project Title:</strong> Clear, descriptive name</li>
+                        <li><strong>Problem Statement:</strong> What real-world problem are you solving?</li>
+                        <li><strong>Solution Overview:</strong> High-level description of your agent system</li>
+                        <li><strong>Key Results:</strong> Quantifiable outcomes and benefits</li>
+                    </ul>
+                </div>
+                
+                <!-- System Architecture -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h3 class="font-display font-bold text-2xl mb-4 flex items-center">
+                        <span class="bg-groq-orange w-8 h-8 rounded-full flex items-center justify-center mr-3">2</span>
+                        System Architecture
+                    </h3>
+                    <ul class="space-y-2 text-gray-300 ml-11">
+                        <li><strong>Agent Roles:</strong> Define each agent's specific responsibilities</li>
+                        <li><strong>Model Selection:</strong> Justify your choice of Groq models for each agent</li>
+                        <li><strong>MCP Integration:</strong> Show how agents connect to external systems</li>
+                        <li><strong>Communication Flow:</strong> Diagram how agents coordinate and share information</li>
+                    </ul>
+                </div>
+                
+                <!-- Technical Implementation -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h3 class="font-display font-bold text-2xl mb-4 flex items-center">
+                        <span class="bg-groq-orange w-8 h-8 rounded-full flex items-center justify-center mr-3">3</span>
+                        Technical Implementation
+                    </h3>
+                    <ul class="space-y-2 text-gray-300 ml-11">
+                        <li><strong>Agent Code:</strong> Well-documented implementations of each agent</li>
+                        <li><strong>MCP Connectors:</strong> Show integration with external tools/data</li>
+                        <li><strong>Orchestration Logic:</strong> How agents coordinate their actions</li>
+                        <li><strong>Error Handling:</strong> Robust handling of edge cases and failures</li>
+                    </ul>
+                </div>
+                
+                <!-- Live Demonstration -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h3 class="font-display font-bold text-2xl mb-4 flex items-center">
+                        <span class="bg-groq-orange w-8 h-8 rounded-full flex items-center justify-center mr-3">4</span>
+                        Live Demonstration
+                    </h3>
+                    <ul class="space-y-2 text-gray-300 ml-11">
+                        <li><strong>Complete User Journey:</strong> End-to-end workflow demonstration</li>
+                        <li><strong>Multi-Modal Inputs:</strong> Show text, voice, image, or data processing</li>
+                        <li><strong>Real-Time Performance:</strong> Highlight Groq's speed advantages</li>
+                        <li><strong>MCP in Action:</strong> Demonstrate external system integration</li>
+                    </ul>
+                </div>
+                
+                <!-- Performance & Impact Analysis -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h3 class="font-display font-bold text-2xl mb-4 flex items-center">
+                        <span class="bg-groq-orange w-8 h-8 rounded-full flex items-center justify-center mr-3">5</span>
+                        Performance & Impact Analysis
+                    </h3>
+                    <ul class="space-y-2 text-gray-300 ml-11">
+                        <li><strong>Speed Benchmarks:</strong> Quantify the performance benefits of Groq</li>
+                        <li><strong>User Experience:</strong> How does real-time inference improve usability?</li>
+                        <li><strong>Business Impact:</strong> Cost savings, efficiency gains, or other measurable benefits</li>
+                        <li><strong>Scalability Considerations:</strong> How would this work at enterprise scale?</li>
+                    </ul>
+                </div>
+                
+                <!-- Setup & Deployment -->
+                <div class="bg-gray-800 rounded-xl p-8 border border-gray-700">
+                    <h3 class="font-display font-bold text-2xl mb-4 flex items-center">
+                        <span class="bg-groq-orange w-8 h-8 rounded-full flex items-center justify-center mr-3">6</span>
+                        Setup & Deployment
+                    </h3>
+                    <ul class="space-y-2 text-gray-300 ml-11">
+                        <li><strong>Environment Setup:</strong> Clear instructions for running your solution</li>
+                        <li><strong>Dependencies:</strong> All required packages</li>
+                        <li><strong>MCP Configuration:</strong> How to connect to external systems</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- CTA -->
+            <div class="mt-16 text-center">
+                <div class="bg-gradient-to-br from-groq-orange to-red-700 rounded-2xl p-12">
+                    <h3 class="font-display font-bold text-3xl md:text-4xl mb-4">
+                        Ready to build the future of AI agents?
+                    </h3>
+                    <p class="text-xl mb-8 opacity-90">
+                        Your solution could be the next breakthrough in intelligent automation. Show us what's possible when lightning-fast inference meets intelligent agent coordination.
+                    </p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <a href="#" class="bg-white text-groq-orange hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 inline-block">
+                            Submit Your Project
+                        </a>
+                        <a href="#" class="bg-groq-dark hover:bg-black px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 inline-block">
+                            Need help with submission?
+                        </a>
+                    </div>
+                    <div class="mt-8">
+                        <a href="#" class="bg-groq-dark hover:bg-black px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-300 inline-block">
+                            Register Now
+                        </a>
+                    </div>
+                </div>
+                
+                <p class="text-sm text-gray-500 mt-8">
+                    <i class="fas fa-info-circle mr-2"></i>
+                    Disclaimer: Hackathon evaluation and grading are conducted in accordance with our internal methods and criteria. All evaluation outcomes are final and not subject to appeal.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-groq-gray border-t border-gray-800 py-12 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <i class="fas fa-brain text-groq-orange text-2xl"></i>
+                        <span class="font-display font-bold text-xl">SNS DT-AI-Hack</span>
+                    </div>
+                    <p class="text-gray-400">Building the future of AI through collaborative innovation and real-world problem solving.</p>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#overview" class="hover:text-groq-orange transition-colors">Overview</a></li>
+                        <li><a href="#challenge" class="hover:text-groq-orange transition-colors">Challenge</a></li>
+                        <li><a href="#tracks" class="hover:text-groq-orange transition-colors">Tracks</a></li>
+                        <li><a href="#timeline" class="hover:text-groq-orange transition-colors">Timeline</a></li>
+                        <li><a href="#submit" class="hover:text-groq-orange transition-colors">Submit</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Connect With Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-groq-orange transition-colors text-2xl">
+                            <i class="fab fa-telegram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-groq-orange transition-colors text-2xl">
+                            <i class="fab fa-x-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-groq-orange transition-colors text-2xl">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-groq-orange transition-colors text-2xl">
+                            <i class="fab fa-discord"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-700 pt-8 text-center text-gray-500">
+                <p>&copy; 2025 SNS DT-AI-Hack. Powered by Groq. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Smooth Scroll Script -->
+    <script src="js/main.js"></script>
+<script src="https://www.genspark.ai/sandbox_inspect.js"></script></body>
+</html>
